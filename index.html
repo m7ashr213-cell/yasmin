@@ -105,51 +105,8 @@
             font-size: 1.1rem;
         }
         
-        .contact-link {
+        .contact-text {
             color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .contact-link:hover {
-            text-decoration: underline;
-        }
-        
-        .phone-options {
-            position: absolute;
-            background: white;
-            color: #333;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            padding: 10px;
-            top: 100%;
-            left: 0;
-            z-index: 100;
-            display: none;
-            flex-direction: column;
-            gap: 8px;
-            min-width: 200px;
-        }
-        
-        .phone-options a {
-            color: #283593;
-            text-decoration: none;
-            padding: 8px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: background 0.3s;
-        }
-        
-        .phone-options a:hover {
-            background: #e8eaf6;
-        }
-        
-        .phone-options.show {
-            display: flex;
         }
         
         main {
@@ -342,7 +299,7 @@
         
         .cert-img-container {
             width: 100%;
-            height: 120px;
+            height: 140px;
             border: 1px solid #ddd;
             border-radius: 8px;
             overflow: hidden;
@@ -350,6 +307,7 @@
             align-items: center;
             justify-content: center;
             background-color: #f9f9f9;
+            position: relative;
         }
         
         .cert-img {
@@ -364,6 +322,29 @@
             font-size: 0.9rem;
             text-align: center;
             padding: 10px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #f5f5f5;
+            border: 2px dashed #ccc;
+        }
+        
+        .cert-label {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #666;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .cert-img-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
         }
         
         @media (max-width: 900px) {
@@ -420,10 +401,6 @@
                 box-shadow: none;
                 margin: 0;
             }
-            
-            .phone-options {
-                display: none;
-            }
         }
     </style>
 </head>
@@ -432,8 +409,7 @@
         <header>
             <div class="profile-header">
                 <div class="profile-photo-container">
-                    <img id="profileImage" class="profile-photo" src="image.jpg" alt="Yasmine Abdelhafeez Photo">
-                    <div id="photoPlaceholder" class="photo-placeholder" style="display: none;">
+                    <div id="photoPlaceholder" class="photo-placeholder">
                         <i class="fas fa-user-circle"></i>
                     </div>
                 </div>
@@ -445,38 +421,23 @@
                     <div class="contact-info">
                         <div class="contact-item">
                             <i class="fas fa-birthday-cake"></i>
-                            <span>Age: 20 Years</span>
+                            <span class="contact-text">Age: 20 Years</span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Mansoura, Dakahlia, Egypt</span>
+                            <span class="contact-text">Mansoura, Dakahlia, Egypt</span>
                         </div>
-                        <div class="contact-item" id="phoneContainer">
+                        <div class="contact-item">
                             <i class="fas fa-phone"></i>
-                            <a href="javascript:void(0)" class="contact-link" id="phoneLink">
-                                01095231484
-                            </a>
-                            <div class="phone-options" id="phoneOptions">
-                                <a href="tel:01095231484">
-                                    <i class="fas fa-phone"></i> Call Number
-                                </a>
-                                <a href="https://wa.me/201095231484" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp
-                                </a>
-                            </div>
+                            <span class="contact-text">01095231484</span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
-                            <a href="mailto:ya495098@gmail.com" class="contact-link">
-                                ya495098@gmail.com
-                            </a>
+                            <span class="contact-text">ya495098@gmail.com</span>
                         </div>
                         <div class="contact-item">
                             <i class="fab fa-linkedin"></i>
-                            <a href="https://www.linkedin.com/in/yasmin-abdo-0635b7252?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" 
-                               target="_blank" class="contact-link">
-                                LinkedIn Profile
-                            </a>
+                            <span class="contact-text">linkedin.com/in/yasmin-abdo-0635b7252</span>
                         </div>
                     </div>
                 </div>
@@ -585,20 +546,54 @@
                     <h3 class="section-title"><i class="fas fa-certificate"></i> Certificates & Projects</h3>
                     <div class="section-content">
                         <div class="certifications-grid">
-                            <div class="cert-img-container">
-                                <img class="cert-img" src="image1.jpg" alt="Certificate 1" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'cert-placeholder\'>Certificate Image 1</div>';">
+                            <div class="cert-img-wrapper">
+                                <div class="cert-img-container">
+                                    <div class="cert-placeholder">
+                                        <i class="fas fa-certificate fa-3x"></i>
+                                        <div>Certificate 1</div>
+                                    </div>
+                                </div>
+                                <div class="cert-label">Networking Fundamentals</div>
                             </div>
-                            <div class="cert-img-container">
-                                <img class="cert-img" src="image2.jpg" alt="Certificate 2" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'cert-placeholder\'>Certificate Image 2</div>';">
+                            
+                            <div class="cert-img-wrapper">
+                                <div class="cert-img-container">
+                                    <div class="cert-placeholder">
+                                        <i class="fas fa-certificate fa-3x"></i>
+                                        <div>Certificate 2</div>
+                                    </div>
+                                </div>
+                                <div class="cert-label">Cisco CCNA Basics</div>
                             </div>
-                            <div class="cert-img-container">
-                                <img class="cert-img" src="image3.jpg" alt="Certificate 3" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'cert-placeholder\'>Certificate Image 3</div>';">
+                            
+                            <div class="cert-img-wrapper">
+                                <div class="cert-img-container">
+                                    <div class="cert-placeholder">
+                                        <i class="fas fa-certificate fa-3x"></i>
+                                        <div>Certificate 3</div>
+                                    </div>
+                                </div>
+                                <div class="cert-label">Network Security</div>
                             </div>
-                            <div class="cert-img-container">
-                                <img class="cert-img" src="image4.jpg" alt="Certificate 4" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'cert-placeholder\'>Certificate Image 4</div>';">
+                            
+                            <div class="cert-img-wrapper">
+                                <div class="cert-img-container">
+                                    <div class="cert-placeholder">
+                                        <i class="fas fa-certificate fa-3x"></i>
+                                        <div>Certificate 4</div>
+                                    </div>
+                                </div>
+                                <div class="cert-label">Project Management</div>
                             </div>
-                            <div class="cert-img-container">
-                                <img class="cert-img" src="image5.jpg" alt="Certificate 5" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'cert-placeholder\'>Certificate Image 5</div>';">
+                            
+                            <div class="cert-img-wrapper">
+                                <div class="cert-img-container">
+                                    <div class="cert-placeholder">
+                                        <i class="fas fa-certificate fa-3x"></i>
+                                        <div>Certificate 5</div>
+                                    </div>
+                                </div>
+                                <div class="cert-label">School Network Project</div>
                             </div>
                         </div>
                     </div>
@@ -636,49 +631,14 @@
     </div>
     
     <script>
-        // Phone options control
+        // Interactive effects for skills
         document.addEventListener('DOMContentLoaded', function() {
-            const phoneLink = document.getElementById('phoneLink');
-            const phoneOptions = document.getElementById('phoneOptions');
-            const phoneContainer = document.getElementById('phoneContainer');
-            
-            // Click on phone number
-            phoneLink.addEventListener('click', function(e) {
-                e.stopPropagation();
-                phoneOptions.classList.toggle('show');
-            });
-            
-            // Close options when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!phoneContainer.contains(e.target)) {
-                    phoneOptions.classList.remove('show');
-                }
-            });
-            
-            // Prevent closing when clicking inside options
-            phoneOptions.addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
-            
-            // Check image loading
-            const profileImage = document.getElementById('profileImage');
-            const placeholder = document.getElementById('photoPlaceholder');
-            
-            profileImage.onerror = function() {
-                this.style.display = 'none';
-                placeholder.style.display = 'block';
-            };
-            
-            profileImage.onload = function() {
-                placeholder.style.display = 'none';
-            };
-            
-            // Interactive effects for skills
             const skillTags = document.querySelectorAll('.skill-tag');
             skillTags.forEach(tag => {
                 tag.addEventListener('mouseenter', function() {
                     this.style.transform = 'scale(1.05)';
                     this.style.boxShadow = '0 4px 8px rgba(57, 73, 171, 0.3)';
+                    this.style.transition = 'all 0.3s ease';
                 });
                 
                 tag.addEventListener('mouseleave', function() {
@@ -692,11 +652,29 @@
             projectItem.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-5px)';
                 this.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.15)';
+                this.style.transition = 'all 0.3s ease';
             });
             
             projectItem.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0)';
                 this.style.boxShadow = 'none';
+            });
+            
+            // Effects for certificate placeholders
+            const certPlaceholders = document.querySelectorAll('.cert-placeholder');
+            certPlaceholders.forEach(placeholder => {
+                placeholder.addEventListener('mouseenter', function() {
+                    this.style.backgroundColor = '#e8eaf6';
+                    this.style.borderColor = '#3949ab';
+                    this.style.transform = 'scale(1.02)';
+                    this.style.transition = 'all 0.3s ease';
+                });
+                
+                placeholder.addEventListener('mouseleave', function() {
+                    this.style.backgroundColor = '#f5f5f5';
+                    this.style.borderColor = '#ccc';
+                    this.style.transform = 'scale(1)';
+                });
             });
             
             // Print shortcut
