@@ -40,20 +40,22 @@
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 40px;
         }
         
         .profile-photo-container {
-            width: 180px;
-            height: 180px;
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
-            border: 5px solid rgba(255, 255, 255, 0.3);
+            border: 6px solid rgba(255, 255, 255, 0.4);
             overflow: hidden;
             background-color: #f0f0f0;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         
         .profile-photo {
@@ -63,7 +65,7 @@
         }
         
         .photo-placeholder {
-            font-size: 80px;
+            font-size: 100px;
             color: #5c6bc0;
         }
         
@@ -351,12 +353,12 @@
             .profile-header {
                 flex-direction: column;
                 text-align: center;
-                gap: 25px;
+                gap: 30px;
             }
             
             .profile-photo-container {
-                width: 160px;
-                height: 160px;
+                width: 200px;
+                height: 200px;
             }
             
             .contact-info {
@@ -378,6 +380,13 @@
             .project-header {
                 flex-direction: column;
                 gap: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-photo-container {
+                width: 180px;
+                height: 180px;
             }
         }
         
